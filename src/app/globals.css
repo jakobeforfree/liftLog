@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f6f4;
+  --surface: #ffffff;
+  --foreground: #18181b;
+  --muted: #6b6b70;
+  --border: #e4e4e2;
+  --accent: #e8590c;
+  --accent-fg: #ffffff;
+  --danger: #c92a2a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111113;
+    --surface: #1b1b1f;
+    --foreground: #ededef;
+    --muted: #9a9aa2;
+    --border: #2c2c32;
+    --accent: #ff7a2e;
+    --accent-fg: #111113;
+    --danger: #ff6b6b;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-border bg-surface p-4;
+  }
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-accent px-4 font-semibold text-accent-fg active:opacity-80 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-4 font-medium active:opacity-70;
+  }
+  .input {
+    @apply min-h-11 w-full rounded-xl border border-border bg-background px-3 text-base outline-none focus:border-accent;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-muted;
+  }
+}
